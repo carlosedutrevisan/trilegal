@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">trilegal</string>
+
+        <string-array name="materiasselecao">
+        <item>Todas</item>
+        <item>Biologia</item>
+        <item>Física</item>
+        <item>Geografia</item>
+        <item>História</item>
+        <item>Língua Portuguesa</item>
+        <item>Química</item>
+        <item>Matemática</item>
+    </string-array>
+
 </resources>

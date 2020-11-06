@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:foregroundGravity="left"
+    tools:context=".Algoritmo"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/selecionar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginBottom="10sp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="1dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_marginStart="10sp"
+                    android:text="Matéria:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginBottom="5sp"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/questao"
+                android:layout_below="@+id/selecionar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginBottom="10sp"
+                android:foreground="?selectableItemBackground"
+                android:shadowColor="@color/colorBlack"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="10sp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15sp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:layout_marginEnd="10sp"
+                        android:fontFamily="sans-serif"
+                        android:text="Biologia - Citologia"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp"
+                        android:textStyle="italic"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:text="(Enem 2013) Para a identificação de um rapaz vítima de acidente, fragmentos de tecidos foram retirados e submetidos à extração de DNA nuclear, para comparação com o DNA disponível dos possíveis familiares (pai, avô materno, avó materna, filho e filha). Como o teste com o DNA nuclear não foi conclusivo, os peritos optaram por usar também DNA mitocondrial, para dirimir dúvidas. Para identificar o corpo, os peritos devem verificar se há homologia entre o DNA mitocondrial do rapaz e o DNA mitocondrial do(a)"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/respostaa"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5sp"
+                        android:foreground="?selectableItemBackground"
+                        android:shadowColor="@color/colorBlack"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp"
+                        app:cardCornerRadius="10sp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15sp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkrespostaA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="pai."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/respostab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5sp"
+                        android:foreground="?selectableItemBackground"
+                        android:shadowColor="@color/colorBlack"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp"
+                        app:cardCornerRadius="10sp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15sp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkrespostaB"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="filho."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/respostac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5sp"
+                        android:foreground="?selectableItemBackground"
+                        android:shadowColor="@color/colorBlack"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp"
+                        app:cardCornerRadius="10sp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15sp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkrespostaC"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="filha."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/respostad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5sp"
+                        android:foreground="?selectableItemBackground"
+                        android:shadowColor="@color/colorBlack"
+                        app:cardCornerRadius="10sp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15sp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkrespostaD"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="avó materna."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/respostae"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10sp"
+                        android:foreground="?selectableItemBackground"
+                        app:cardCornerRadius="10sp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="15sp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkrespostaE"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="avô materno."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/responder"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:foreground="?selectableItemBackground"
+                        android:shadowColor="@color/colorBlack"
+                        app:cardBackgroundColor="@color/colorBlack"
+                        app:cardCornerRadius="10sp"
+                        android:clickable="true"
+                        app:cardElevation="0dp"
+                        android:focusable="true">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2dp"
+                                android:text="RESPONDER!"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>
