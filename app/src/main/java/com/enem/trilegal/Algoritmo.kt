@@ -1,14 +1,15 @@
 package com.enem.trilegal
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_algoritmo.*
 import java.io.IOException
-import java.io.InputStream
 
 class Algoritmo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +23,24 @@ class Algoritmo : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
 
-        List<Question> questionItems
+        val gson = GsonBuilder().create()
+
+        fun getJsonDataFromAsset(context: Context, fileName: String): String? {
+            val jsonString: String
+            try {
+                jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
+            } catch (ioException: IOException) {
+                ioException.printStackTrace()
+                return null
+            }
+            return jsonString
+        }
+
+        val jsonFileString = getJsonDataFromAsset(applicationContext, "questions.json")
+
+        val biologia = gson.fromJson(jsonFileString, Biologia::class.java)
+
+
 
         val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
@@ -32,17 +50,6 @@ class Algoritmo : AppCompatActivity() {
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
-        }
-
-        fun loadJSONFromAsset(): String? {
-            var json : String? = null
-
-            try {
-                val inputStream: InputStream = assets.open("questions.json")
-            } catch (e : IOException){
-                e.printStackTrace()
-            }
-            return json
         }
 
         var respostaselecionada = 0
@@ -139,3 +146,7 @@ class Algoritmo : AppCompatActivity() {
         return true
     }
 }
+
+class QuestãoDaVez(val questaodavez: List<Biologia>)
+
+class Biologia (val materia: String, val questao: String, val resposta1: String, val resposta2: String, val resposta3: String, val resposta4: String, val resposta5: String, val respostacerta: String)
