@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_algoritmo.*
 import java.io.IOException
 
 class Algoritmo : AppCompatActivity() {
+
+    //config da activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_algoritmo)
@@ -22,7 +24,9 @@ class Algoritmo : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
+    //.
 
+        //ler o json e colocar em uma string (jsonFileString)
         val gson = GsonBuilder().create()
 
         fun getJsonDataFromAsset(context: Context, fileName: String): String? {
@@ -37,11 +41,12 @@ class Algoritmo : AppCompatActivity() {
         }
 
         val jsonFileString = getJsonDataFromAsset(applicationContext, "questions.json")
+        //.
 
         val biologia = gson.fromJson(jsonFileString, Biologia::class.java)
 
 
-
+        //spinner da seleção de materias
         val spinner: Spinner = findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
             this,
@@ -51,9 +56,12 @@ class Algoritmo : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
         }
+        //.
 
-        var respostaselecionada = 0
+        var respostaselecionada = 0 //para ver qual resposta foi selecionada
 
+
+        //selecionar a resposta
         val bntRespostaA = findViewById<CardView>(R.id.respostaa)
         bntRespostaA.setOnClickListener {
             if (checkrespostaA.isChecked) {
@@ -129,12 +137,20 @@ class Algoritmo : AppCompatActivity() {
                 checkrespostaD.isChecked = false
             }
         }
-        //Selecionar questao fim
+        //.
 
+
+        // teste que fala qual alternativa foi selecionada
+        var respostaselecionadastring: String = ""
         val bntResponder = findViewById<CardView>(R.id.responder)
         bntResponder.setOnClickListener{
                 if (checkrespostaA.isChecked || checkrespostaB.isChecked || checkrespostaC.isChecked || checkrespostaD.isChecked || checkrespostaE.isChecked){
-                    Toast.makeText(this, "boa, vc selecionou a $respostaselecionada", Toast.LENGTH_SHORT).show()
+                    if (respostaselecionada == 1) respostaselecionadastring = "A"
+                    if (respostaselecionada == 2) respostaselecionadastring = "B"
+                    if (respostaselecionada == 3) respostaselecionadastring = "C"
+                    if (respostaselecionada == 4) respostaselecionadastring = "D"
+                    if (respostaselecionada == 5) respostaselecionadastring = "E"
+                    Toast.makeText(this, "Você selecionou a alternativa: $respostaselecionadastring", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "Selecione uma alternativa", Toast.LENGTH_SHORT).show()
                 }
