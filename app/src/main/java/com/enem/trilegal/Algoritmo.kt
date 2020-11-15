@@ -1,13 +1,13 @@
 package com.enem.trilegal
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.core.view.get
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_algoritmo.*
 import java.io.IOException
@@ -27,22 +27,6 @@ class Algoritmo : AppCompatActivity() {
         }
     //.
 
-    //selecionar materia da questão
-    val materias = arrayOf("Todas","Biologia","Física", "Geografia", "História", "Língua Portuguesa", "Química", "Matemática")
-    var materiasselecionada = ""
-    spinnerMaterias.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, materias)
-
-    spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-        override fun onNothingSelected(p0: AdapterView<*>?) {
-        }
-
-        override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            materiasselecionada = spinnerMaterias.getItemAtPosition(position).toString()
-            println(materiasselecionada)
-        }
-    }
-    //.
-
     //ler o json da materia selecionada e colocar em uma string (jsonFileString)
     val gson = GsonBuilder().create()
 
@@ -54,15 +38,55 @@ class Algoritmo : AppCompatActivity() {
             ioException.printStackTrace()
             return null
         }
+
         return jsonString
     }
-
-    val jsonFileString = getJsonDataFromAsset(applicationContext, "questions.json")
     //.
 
-    var respostaselecionada = 0 //para ver qual resposta foi selecionada
+    //selecionar materia da questão
+    val materias = arrayOf("Todas","Biologia","Física", "Geografia", "História", "Língua Portuguesa", "Química", "Matemática")
+        var materiasselecionada: String
+        spinnerMaterias.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, materias)
+
+    spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+        }
+
+        override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            materiasselecionada = spinnerMaterias.getItemAtPosition(position).toString()
+            println(materiasselecionada)
+            var materiadavez = ""
+            when (materiasselecionada) {
+                "Biologia" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "biologia.json").toString()
+                }
+                "Física" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "fisica.json").toString()
+                }
+                "Geografia" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "geografia.json").toString()
+                }
+                "História" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "historia.json").toString()
+                }
+                "Língua Portuguesa" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "lp.json").toString()
+                }
+                "Química" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "quimica.json").toString()
+                }
+                "Matemática" -> {
+                    materiadavez = getJsonDataFromAsset(applicationContext, "matematica.json").toString()
+                }
+            }
+            println(materiadavez)
+        }
+    }
+    //.
 
     //selecionar a resposta
+    var respostaselecionada = 0 //para ver qual resposta foi selecionada
+
     val bntRespostaA = findViewById<CardView>(R.id.respostaa)
     bntRespostaA.setOnClickListener {
         if (checkrespostaA.isChecked) {
@@ -141,15 +165,17 @@ class Algoritmo : AppCompatActivity() {
     //.
 
     // teste que fala qual alternativa foi selecionada
-    var respostaselecionadastring: String = "X"
+    var respostaselecionadastring = ""
     val bntResponder = findViewById<CardView>(R.id.responder)
     bntResponder.setOnClickListener{
             if (checkrespostaA.isChecked || checkrespostaB.isChecked || checkrespostaC.isChecked || checkrespostaD.isChecked || checkrespostaE.isChecked){
-                if (respostaselecionada == 1) respostaselecionadastring = "A"
-                if (respostaselecionada == 2) respostaselecionadastring = "B"
-                if (respostaselecionada == 3) respostaselecionadastring = "C"
-                if (respostaselecionada == 4) respostaselecionadastring = "D"
-                if (respostaselecionada == 5) respostaselecionadastring = "E"
+                when (respostaselecionada) {
+                    1 -> respostaselecionadastring = "A"
+                    2 -> respostaselecionadastring = "B"
+                    3 -> respostaselecionadastring = "C"
+                    4 -> respostaselecionadastring = "D"
+                    5 -> respostaselecionadastring = "E"
+                }
                 Toast.makeText(this, "Você selecionou a alternativa $respostaselecionadastring", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Selecione uma alternativa", Toast.LENGTH_SHORT).show()
@@ -162,7 +188,3 @@ class Algoritmo : AppCompatActivity() {
         return true
     }
 }
-
-class QuestãoDaVez(val questaodavez: List<Biologia>)
-
-class Biologia (val materia: String, val questao: String, val resposta1: String, val resposta2: String, val resposta3: String, val resposta4: String, val resposta5: String, val respostacerta: String)

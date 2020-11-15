@@ -1,0 +1,24 @@
+{
+	"lp": [
+		{
+			"materia": "Citologia",
+			"questao": "lp (Enem 2ª aplicação 2010) Alguns fatores podem alterar a rapidez das reações químicas. A seguir, destacam-se três exemplos no contexto da preparação e da conservação de alimentos: 1. A maioria dos produtos alimentícios se conserva por muito mais tempo quando submetidos à refrigeração. Esse procedimento diminui a rapidez das reações que contribuem para a degradação de certos alimentos. 2. Um procedimento muito comum utilizado em práticas de culinária é o corte dos alimentos para acelerar o seu cozimento, caso não se tenha uma panela de pressão. 3. Na preparação de iogurtes, adicionam-se ao leite bactérias produtoras de enzimas que aceleram as reações envolvendo açúcares e proteínas lácteas. Com base no texto, quais são os fatores que influenciam a rapidez das transformações químicas relacionadas aos exemplos 1, 2 e 3, respectivamente?",
+			"resposta1": "Temperatura, superfície de contato e concentração.",
+			"resposta2": "Concentração, superfície de contato e catalisadores.",
+			"resposta3": "Temperatura, superfície de contato e catalisadores.",
+			"resposta4": "Superfície de contato, temperatura e concentração.",
+			"resposta5": "Temperatura, concentração e catalisadores.",
+			"respostacerta": "3",
+		},
+		{
+			"materia": "Evolução",
+			"questao": "(Enem 2013) As fêmeas de algumas espécies de aranhas, escorpiões e de outros invertebrados predam os machos após a cópula e inseminação. Como exemplo, fêmeas canibais do inseto conhecido como louva-a-deus, Tenodera aridofolia, possuem até 63% da sua dieta composta por machos parceiros. Para as fêmeas, o canibalismo sexual pode assegurar a obtenção de nutrientes importantes na reprodução. Com esse incremento na dieta, elas geralmente produzem maior quantidade de ovos. BORGES, J. C. “Jogo mortal”. Disponível em: http://cienciahoje.uol.com.br. Acesso em: 1 mar. 2012 (adaptado). Apesar de ser um comportamento aparentemente desvantajoso para os machos, o canibalismo sexual evoluiu nesses táxons animais porque",
+			"resposta1": "promove a maior ocupação de diferentes nichos ecológicos pela espécie.",
+			"resposta2": "favorece o sucesso reprodutivo individual de ambos os parentais.",
+			"resposta3": "impossibilita a transmissão de genes do macho para a prole",
+			"resposta4": "impede a sobrevivência e reprodução futura do macho.",
+			"resposta5": "reduz a variabilidade genética da população",
+			"respostacerta": "2",
+		},
+	],
+}
