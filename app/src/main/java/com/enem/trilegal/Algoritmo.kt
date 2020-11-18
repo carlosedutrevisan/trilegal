@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_algoritmo.*
+import org.json.JSONObject
 import java.io.IOException
 
 class Algoritmo : AppCompatActivity() {
@@ -27,8 +32,7 @@ class Algoritmo : AppCompatActivity() {
         }
     //.
 
-    //ler o json da materia selecionada e colocar em uma string (jsonFileString)
-    val gson = GsonBuilder().create()
+    val questaotext: TextView = findViewById(R.id.perguntadavez)
 
     fun getJsonDataFromAsset(context: Context, fileName: String): String? {
         val jsonString: String
@@ -45,46 +49,50 @@ class Algoritmo : AppCompatActivity() {
 
     //selecionar materia da questão
     val materias = arrayOf("Todas","Biologia","Física", "Geografia", "História", "Língua Portuguesa", "Química", "Matemática")
-        var materiasselecionada: String
+    var materiasselecionada: String
         spinnerMaterias.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, materias)
+    var materiadavez = ""
+    //ler o json da materia selecionada e colocar em uma string (jsonFileString)
+    val gson = GsonBuilder().create()
 
-    spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
         override fun onNothingSelected(p0: AdapterView<*>?) {
         }
-
         override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
             materiasselecionada = spinnerMaterias.getItemAtPosition(position).toString()
             println(materiasselecionada)
-            var materiadavez = ""
             when (materiasselecionada) {
                 "Biologia" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "biologia.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "biologia.json")!!
                 }
                 "Física" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "fisica.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "fisica.json")!!
                 }
                 "Geografia" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "geografia.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "geografia.json")!!
                 }
                 "História" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "historia.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "historia.json")!!
                 }
                 "Língua Portuguesa" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "lp.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "lp.json")!!
                 }
                 "Química" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "quimica.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "quimica.json")!!
                 }
                 "Matemática" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "matematica.json").toString()
+                    materiadavez = getJsonDataFromAsset(applicationContext, "matematica.json")!!
                 }
+
             }
-            println(materiadavez)
+
         }
     }
     //.
 
-    //selecionar a resposta
+        
+
+        //selecionar a resposta
     var respostaselecionada = 0 //para ver qual resposta foi selecionada
 
     val bntRespostaA = findViewById<CardView>(R.id.respostaa)
