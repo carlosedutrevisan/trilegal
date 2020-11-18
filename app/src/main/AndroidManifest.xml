@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".questao"></activity>
+        <activity android:name=".EscolherMateria"></activity>
+        <activity android:name=".questao" />
         <activity android:name=".Configuracoes" />
         <activity android:name=".Estatisticas" />
         <activity android:name=".BancoDeQuestoes" />

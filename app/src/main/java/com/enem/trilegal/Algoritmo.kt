@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.beust.klaxon.Parser
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
@@ -32,62 +33,56 @@ class Algoritmo : AppCompatActivity() {
         }
     //.
 
-    val questaotext: TextView = findViewById(R.id.perguntadavez)
-
-    fun getJsonDataFromAsset(context: Context, fileName: String): String? {
-        val jsonString: String
-        try {
-            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
-        } catch (ioException: IOException) {
-            ioException.printStackTrace()
-            return null
+    fun parse(name: String) : Any? {
+        val cls = Parser::class.java
+        return cls.getResourceAsStream(name)?.let { inputStream ->
+            return Parser.default().parse(inputStream)
         }
-
-        return jsonString
     }
     //.
+
+    var materiadavez: String = ""
 
     //selecionar materia da questão
     val materias = arrayOf("Todas","Biologia","Física", "Geografia", "História", "Língua Portuguesa", "Química", "Matemática")
     var materiasselecionada: String
+
         spinnerMaterias.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item, materias)
-    var materiadavez = ""
-    //ler o json da materia selecionada e colocar em uma string (jsonFileString)
-    val gson = GsonBuilder().create()
-
-        spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-        override fun onNothingSelected(p0: AdapterView<*>?) {
-        }
-        override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            materiasselecionada = spinnerMaterias.getItemAtPosition(position).toString()
-            println(materiasselecionada)
-            when (materiasselecionada) {
-                "Biologia" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "biologia.json")!!
-                }
-                "Física" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "fisica.json")!!
-                }
-                "Geografia" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "geografia.json")!!
-                }
-                "História" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "historia.json")!!
-                }
-                "Língua Portuguesa" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "lp.json")!!
-                }
-                "Química" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "quimica.json")!!
-                }
-                "Matemática" -> {
-                    materiadavez = getJsonDataFromAsset(applicationContext, "matematica.json")!!
-                }
-
+        spinnerMaterias.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(p0: AdapterView<*>?) {
             }
 
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                materiasselecionada = spinnerMaterias.getItemAtPosition(position).toString()
+                println(materiasselecionada)
+                when (materiasselecionada) {
+                    "Biologia" -> {
+                        materiadavez = "/biologia.json"
+                    }
+                    "Física" -> {
+                        materiadavez = "/fisica.json"
+                    }
+                    "Geografia" -> {
+                        materiadavez = "/geografia.json"
+                    }
+                    "História" -> {
+                        materiadavez = "/historia.json"
+                    }
+                    "Língua Portuguesa" -> {
+                        materiadavez = "/lp.json"
+                    }
+                    "Química" -> {
+                        materiadavez = "/quimica.json"
+                    }
+                    "Matemática" -> {
+                        materiadavez = "/matematica.json"
+                    }
+
+                }
+                println(materiadavez)
+                
+            }
         }
-    }
     //.
 
         
