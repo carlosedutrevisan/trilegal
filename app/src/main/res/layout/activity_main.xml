@@ -58,7 +58,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/algaritmo"
+            android:id="@+id/selecao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/descricao"
@@ -119,7 +119,7 @@
             android:id="@+id/recomendacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/algaritmo"
+            android:layout_below="@+id/selecao"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="15sp"

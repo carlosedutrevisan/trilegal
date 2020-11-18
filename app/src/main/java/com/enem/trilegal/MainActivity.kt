@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(abrirConfig)
         }
 
-        val bntAlgoritmo = findViewById<CardView>(R.id.algaritmo)
-        bntAlgoritmo.setOnClickListener{
-            val abrirAlgoritmo = Intent(this, Algoritmo::class.java)
-            startActivity(abrirAlgoritmo)
+        val bntSelecao = findViewById<CardView>(R.id.selecao)
+        bntSelecao.setOnClickListener{
+            val abrirSelecao = Intent(this, EscolherMateria::class.java)
+            startActivity(abrirSelecao)
         }
 
         val bntRecomendacao = findViewById<CardView>(R.id.recomendacao)
