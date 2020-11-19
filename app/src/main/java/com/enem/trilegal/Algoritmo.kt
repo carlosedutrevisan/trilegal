@@ -1,10 +1,12 @@
 package com.enem.trilegal
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import kotlinx.android.synthetic.main.activity_algoritmo.*
+import org.w3c.dom.Text
 
 class Algoritmo : AppCompatActivity() {
 
@@ -21,6 +23,10 @@ class Algoritmo : AppCompatActivity() {
         }
     //.
 
+        val materiasselecionadaExtra = intent.getStringExtra("Materiasselecionada")
+        val materiasselecionada = findViewById<TextView>(R.id.materiasselecionada)
+        println(materiasselecionadaExtra)
+        materiasselecionada.setText(materiasselecionadaExtra)
 
     //selecionar a resposta
     var respostaselecionada = 0 //para ver qual resposta foi selecionada

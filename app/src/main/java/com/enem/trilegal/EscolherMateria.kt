@@ -9,10 +9,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import kotlinx.android.synthetic.main.activity_algoritmo.*
+
 
 class EscolherMateria : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escolher_materia)
@@ -23,8 +22,8 @@ class EscolherMateria : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
-
-        var selecionado = false;
+        var materiasselecionada: String = ""
+        var selecionado = false
         val selecionar: Spinner = findViewById(R.id.spinnerMaterias)
         val materias = arrayOf("Selecionar",
             "Biologia",
@@ -34,7 +33,6 @@ class EscolherMateria : AppCompatActivity() {
             "Língua Portuguesa",
             "Química",
             "Matemática")
-        var materiasselecionada: String
         var materiadavez: String
         selecionar.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, materias)
         selecionar.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
@@ -43,6 +41,10 @@ class EscolherMateria : AppCompatActivity() {
             }
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 materiasselecionada = selecionar.getItemAtPosition(position).toString()
+                println(materiasselecionada)
+                val intent = Intent(this@EscolherMateria, Algoritmo::class.java)
+                intent.putExtra("Materiasselecionada", materiasselecionada)
+                startActivity(intent)
                 when (materiasselecionada) {
                     "Selecionar" -> {
                         selecionado = false
@@ -88,7 +90,9 @@ class EscolherMateria : AppCompatActivity() {
                 Toast.makeText(this@EscolherMateria, "Por favor, selecione uma matéria", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
