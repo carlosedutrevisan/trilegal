@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:foregroundGravity="left"
-    tools:context=".Algoritmo"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Algoritmo">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,9 +19,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/questao"
-                android:layout_below="@+id/selecionar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/selecionar"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20sp"
                 android:layout_marginRight="20sp"
@@ -36,9 +36,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15sp"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15sp"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -64,32 +64,31 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/respostaa"
-                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_marginBottom="5sp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:shadowColor="@color/colorBlack"
                         app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
                         app:cardCornerRadius="10sp"
-                        android:clickable="true"
-                        android:focusable="true">
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15sp"
+                            android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
                             <CheckBox
                                 android:id="@+id/checkrespostaA"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                />
+                                android:layout_height="wrap_content" />
 
 
                             <TextView
@@ -112,22 +111,21 @@
                         android:foreground="?selectableItemBackground"
                         android:shadowColor="@color/colorBlack"
                         app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
-                        app:cardCornerRadius="10sp">
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15sp"
+                            android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
                             <CheckBox
                                 android:id="@+id/checkrespostaB"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                />
+                                android:layout_height="wrap_content" />
 
 
                             <TextView
@@ -147,27 +145,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5sp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:shadowColor="@color/colorBlack"
                         app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
                         app:cardCornerRadius="10sp"
-                        android:clickable="true"
-                        android:focusable="true">
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15sp"
+                            android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
                             <CheckBox
                                 android:id="@+id/checkrespostaC"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                />
+                                android:layout_height="wrap_content" />
 
 
                             <TextView
@@ -187,27 +184,26 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5sp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:shadowColor="@color/colorBlack"
-                        app:cardCornerRadius="10sp"
                         app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
-                        android:clickable="true"
-                        android:focusable="true">
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15sp"
+                            android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
                             <CheckBox
                                 android:id="@+id/checkrespostaD"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                />
+                                android:layout_height="wrap_content" />
 
 
                             <TextView
@@ -227,26 +223,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10sp"
-                        android:foreground="?selectableItemBackground"
-                        app:cardCornerRadius="10sp"
-                        app:cardBackgroundColor="@android:color/transparent"
-                        app:cardElevation="0dp"
                         android:clickable="true"
-                        android:focusable="true">
+                        android:focusable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginEnd="15sp"
+                            android:layout_marginBottom="5dp"
                             android:orientation="horizontal">
 
                             <CheckBox
                                 android:id="@+id/checkrespostaE"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                />
+                                android:layout_height="wrap_content" />
 
 
                             <TextView
@@ -261,49 +256,55 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/responder"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="5dp"
-                        android:foreground="?selectableItemBackground"
-                        android:shadowColor="@color/colorBlack"
-                        app:cardBackgroundColor="@color/colorBlack"
-                        app:cardCornerRadius="10sp"
-                        android:clickable="true"
-                        app:cardElevation="0dp"
-                        android:focusable="true">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="2dp"
-                                android:text="RESPONDER!"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/questao"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/responder"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    android:shadowColor="@color/colorBlack"
+                    app:cardBackgroundColor="@color/colorBlack"
+                    app:cardCornerRadius="10sp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="RESPONDER!"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </ScrollView>
-
-
-
 
 
 </RelativeLayout>

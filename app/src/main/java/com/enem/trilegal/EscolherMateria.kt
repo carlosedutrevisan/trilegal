@@ -15,6 +15,7 @@ class EscolherMateria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escolher_materia)
+        //Titulo da activity
         val actionbar = supportActionBar
         this.title = "Seleção de Matéria"
         actionbar.run {
@@ -22,10 +23,12 @@ class EscolherMateria : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
-        var materiasselecionada: String = ""
+
+        //Spinner da seleção de matérias
+        var materiasselecionada = ""
         var selecionado = false
         val selecionar: Spinner = findViewById(R.id.spinnerMaterias)
-        val materias = arrayOf("Selecionar",
+        val materias = arrayOf("Selecionar", //Array do spinner
             "Biologia",
             "Física",
             "Geografia",
@@ -33,7 +36,9 @@ class EscolherMateria : AppCompatActivity() {
             "Língua Portuguesa",
             "Química",
             "Matemática")
-        var materiadavez: String
+        var materiadavez = ""
+
+        //Gambiarra para fazer o spinner funcionar (não faz muito sentido mesmo)
         selecionar.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, materias)
         selecionar.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -41,14 +46,12 @@ class EscolherMateria : AppCompatActivity() {
             }
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 materiasselecionada = selecionar.getItemAtPosition(position).toString()
-                println(materiasselecionada)
-                val intent = Intent(this@EscolherMateria, Algoritmo::class.java)
-                intent.putExtra("Materiasselecionada", materiasselecionada)
-                startActivity(intent)
+                println(materiasselecionada) //Teste p ver se ta funcionando
                 when (materiasselecionada) {
                     "Selecionar" -> {
                         selecionado = false
                     }
+                    //Pega o endereço do json e jogo p val materiadavez
                     "Biologia" -> {
                         materiadavez = "/biologia.json"
                         selecionado = true
@@ -81,10 +84,15 @@ class EscolherMateria : AppCompatActivity() {
             }
         }
 
+        //Botao de VAMOS
         val bntAlgoritmo = findViewById<CardView>(R.id.responder)
         bntAlgoritmo.setOnClickListener {
             if (selecionado){
                 val abrirAlgoritmo = Intent(this, Algoritmo::class.java)
+                //Joga algumas variaveis para a activity da questão
+                abrirAlgoritmo.putExtra("Materiasselecionada", materiasselecionada)
+                abrirAlgoritmo.putExtra("Materiadavez", materiadavez)
+                //Abre a outra activity
                 startActivity(abrirAlgoritmo)
             } else {
                 Toast.makeText(this@EscolherMateria, "Por favor, selecione uma matéria", Toast.LENGTH_SHORT).show()
